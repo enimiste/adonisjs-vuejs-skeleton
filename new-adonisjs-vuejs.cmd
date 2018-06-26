@@ -1,6 +1,4 @@
 # node v8.*
-#!/bin/sh
-
 echo "Installing required packages..."
 echo "Installing : @adonisjs/cli"
 npm i -g @adonisjs/cli
