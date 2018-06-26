@@ -31,4 +31,6 @@ echo "Installing project dependencies"
 npm i
 
 echo "Checking : Generating js/css files"
-npm run dev & npm run start
+npm run dev
+echo 'You can open another cmd and run : npm run watch'
+npm run start
