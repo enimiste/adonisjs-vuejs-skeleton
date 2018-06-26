@@ -3,6 +3,11 @@ To generate a fresh installation that uses latest Laravel project template and L
 - In your home run : `curl https://raw.githubusercontent.com/enimiste/adonisjs-vuejs-skeleton/master/new-adonisjs-vuejs.sh > ~/new- adonisjs-vuejs.sh`
 - To generate a project run : `~/new- adonisjs-vuejs.sh PROEJCT_NAME` 
 
+## Packages that will be installed globaly :
+- `@adonisjs/cli` : To create a new Adonisjs project
+- `package-json-merge` : To merge adonijs package.json file with one from Laravel temporary project
+- `prettier-package-json` : To format the merged package.json file
+
 # Requirements :
 - Nodejs v8 or greater
 - Git & Git Bash
