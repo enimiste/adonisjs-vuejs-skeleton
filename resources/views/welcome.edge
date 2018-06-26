@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Hello Adonis</title>
-  {{ style('css/app.css') }}
-</head>
-<body>
-  <div id="app">
-    <example-component/>
-  </div>
-  <script src="{{assetsUrl('js/app.js')}}"></script>
-</body>
-</html>
+@layout('layout')
+@section('content')
+ <example-component/>
+@endsection

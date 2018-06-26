@@ -1,6 +1,4 @@
 # node v8.*
-#!/bin/sh
-
 echo "Installing required packages..."
 echo "Installing : @adonisjs/cli"
 npm i -g @adonisjs/cli
@@ -26,8 +24,11 @@ echo 'mix.setPublicPath("public");' >> webpack.mix.js
 
 echo "Remove Laravel template"
 rm -rf tmp
+echo "Edge views : Layout, welcome"
+curl https://raw.githubusercontent.com/enimiste/adonisjs-vuejs-skeleton/master/resources/views/layout.edge > resources/views/layout.edge
+curl https://raw.githubusercontent.com/enimiste/adonisjs-vuejs-skeleton/master/resources/views/welcome.edge > resources/views/welcome.edge
 echo "Installing project dependencies"
 npm i
 
 echo "Checking : Generating js/css files"
-npm run dev
+npm run dev & npm run start
