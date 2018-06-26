@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <title>Hello Adonis</title>
-  {{ style('style') }}
+  {{ style('css/app.css') }}
 </head>
 <body>
   <div id="app">
-    <App/>
+    <example-component/>
   </div>
-  <script src="{{assetsUrl('frontend/js/vendor.js')}}"></script>
-  <script src="{{assetsUrl('frontend/js/app.js')}}"></script>
+  <script src="{{assetsUrl('js/app.js')}}"></script>
 </body>
 </html>
