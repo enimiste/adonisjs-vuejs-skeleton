@@ -29,9 +29,9 @@ To create a project with name MY_PROJECT_NAME run this commande in your projects
 
 The script support two more arguments after the project name :
 - Adonis Cli Version (default to 4.0.5) 
-- Laravel project version (default to v5.5.28). The v5.5.* is the last branch that uses Boostrap v3. To use Bootstrap v4 use v5.6.0 Or juste ignore this argument
+- Laravel project version (default to v5.5.28). The v5.5.* is the last branch that uses Boostrap v3. To use Bootstrap v4 use v5.6.0 Or juste ignore this argument :  
 `~/new- adonisjs-vuejs.sh MY_PROJECT_NAME ADONIS_VERSION LARAVEL_VERSION`  
-Ex :
+Ex :  
 `~/new- adonisjs-vuejs.sh Blog 4.0.5 v5.5.28`  
 
 NB : In Windows please use Git Bash commande line 
