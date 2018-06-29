@@ -1,7 +1,14 @@
+#!/bin/bash
 # node v8.*
 echo "Installing required packages..."
-echo "Installing : @adonisjs/cli"
-npm i -g @adonisjs/cli
+ADONISJS_VERSION="4.0.5"
+if [ ! -z $2 ]
+then
+ADONISJS_VERSION=$2
+fi
+echo "Installing : @adonisjs/cli@$ADONISJS_VERSION"
+
+npm i -g @adonisjs/cli@$ADONISJS_VERSION
 echo "Installing : package-json-merge"
 npm i -g package-json-merge
 echo "Installing : prettier-package-json"
@@ -11,8 +18,14 @@ echo "Creating Adonisjs new project $1"
 adonis new $1
 cd $1
 echo 'tmp' >> .gitignore
-echo "Cloning Laravel latest skelton project"
-git clone --depth=1 https://github.com/laravel/laravel tmp
+
+LARAVEL_VERSION="5.5.28"
+if [ ! -z $3 ]
+then
+LARAVEL_VERSION=$3
+fi
+echo "Cloning Laravel $LARAVEL_VERSION skelton project"
+git clone --depth=1 https://github.com/laravel/laravel -b $LARAVEL_VERSION tmp
 cp -r tmp/resources/assets resources/
 echo "Merging package.json files"
 package-json-merge tmp/package.json package.json > package.json.merged
@@ -29,6 +42,14 @@ curl https://raw.githubusercontent.com/enimiste/adonisjs-vuejs-skeleton/master/r
 curl https://raw.githubusercontent.com/enimiste/adonisjs-vuejs-skeleton/master/resources/views/welcome.edge > resources/views/welcome.edge
 echo "Installing project dependencies"
 npm i
+
+echo "Remove installed packages"
+echo "Removing : @adonisjs/cli@$ADONISJS_VERSION"
+npm i -g @adonisjs/cli@$ADONISJS_VERSION
+echo "Removing : package-json-merge"
+npm remove -g package-json-merge
+echo "Removing : prettier-package-json"
+npm remove -g prettier-package-json
 
 echo "Checking : Generating js/css files"
 npm run dev
