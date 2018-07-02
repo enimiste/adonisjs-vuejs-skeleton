@@ -17,7 +17,7 @@ npm i -g prettier-package-json
 echo "Creating Adonisjs new project $1"
 adonis new $1
 cd $1
-echo 'tmp' >> .gitignore
+echo '_tmp' >> .gitignore
 
 LARAVEL_VERSION="5.5.28"
 if [ ! -z $3 ]
@@ -25,18 +25,18 @@ then
 LARAVEL_VERSION=$3
 fi
 echo "Cloning Laravel $LARAVEL_VERSION skelton project"
-git clone --depth=1 https://github.com/laravel/laravel -b $LARAVEL_VERSION tmp
-cp -r tmp/resources/assets resources/
+git clone --depth=1 https://github.com/laravel/laravel -b $LARAVEL_VERSION _tmp
+cp -r _tmp/resources/assets resources/
 echo "Merging package.json files"
-package-json-merge tmp/package.json package.json > package.json.merged
+package-json-merge _tmp/package.json package.json > package.json.merged
 mv package.json.merged package.json
 prettier-package-json --write package.json
 echo "Copying : webpack.mix.js"
-cp tmp/webpack.mix.js webpack.mix.js
+cp _tmp/webpack.mix.js webpack.mix.js
 echo 'mix.setPublicPath("public");' >> webpack.mix.js
 
 echo "Remove Laravel template"
-rm -rf tmp
+rm -rf _tmp
 echo "Edge views : Layout, welcome"
 curl https://raw.githubusercontent.com/enimiste/adonisjs-vuejs-skeleton/master/resources/views/layout.edge > resources/views/layout.edge
 curl https://raw.githubusercontent.com/enimiste/adonisjs-vuejs-skeleton/master/resources/views/welcome.edge > resources/views/welcome.edge
